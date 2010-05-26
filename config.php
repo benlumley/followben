@@ -34,10 +34,8 @@
 
 $version                = "1.10";                                   // Version
 $map_title              = "InstaMapper Track v." . $version;       // Page Title
-$instamapper_api_key    = "";                                      // Insert your InstaMapper API key here
-$google_api_key         = "";                                      // Insert your Google API key here
-$instamapper_api_key    = "";
-$google_api_key         = "";
+$instamapper_api_key    = "5591835202184065782";                                      // Insert your InstaMapper API key here
+$google_api_key         = "ABQIAAAAAUguE8MuC-8PIvn0Zzd8kRQ8dVouXys_kbKZZsjz1nUeriY2rxQLznqPyejISb4vmU5kbM-bfRwJ9A";                                      // Insert your Google API key here
 $start_timestamp        = "";                                      // Unix timestamp - leave blank to load last point
 $end_timestamp          = "";                                      // Unix timestamp
 $no_data_message        = "No track data available";               // Message when no data is found
@@ -53,10 +51,10 @@ $points_to_show         = 1;                                       // Maximum nu
 $refresh_seconds        = 5;                                       // How often (in seconds) to refresh screen
 $allow_inline_url       = "yes";                                   // Allow values to be passed in URL
 
-$mysql_user             = "";                                      // MySQL User Name
+$mysql_user             = "root";                                      // MySQL User Name
 $mysql_password         = "";                                      // MySQL Password
-$mysql_host             = "";                                      // MySQL Host
-$mysql_database         = "";                                      // MySQL Database
+$mysql_host             = "localhost";                                      // MySQL Host
+$mysql_database         = "whereisben";                                      // MySQL Database
 $mysql_table            = "instamapper";                           // MySQL Table
 $mysql_update_time      = 1;                                       // Number of minutes to wait to update MySQL
 
@@ -75,7 +73,7 @@ $sql = array(
 "host" => $mysql_host,
 "db" =>   $mysql_database
 );
-$link=mysql_connect($sql[host],$sql[user],$sql[pass]);
+$link=mysql_connect($sql['host'],$sql['user'],$sql['pass']);
 mysql_select_db($sql[db]);
 $findlast=mysql_query("SELECT * FROM " . $mysql_table . " ORDER BY timestamp DESC LIMIT 1");
 $foundlast=mysql_fetch_array($findlast);
