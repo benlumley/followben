@@ -33,7 +33,7 @@
 
 
 $version                = "1.10";                                   // Version
-$map_title              = "InstaMapper Track v." . $version;       // Page Title
+$map_title              = "Where Is Ben?";       // Page Title
 $instamapper_api_key    = "5591835202184065782";                                      // Insert your InstaMapper API key here
 $google_api_key         = "ABQIAAAAAUguE8MuC-8PIvn0Zzd8kRQ8dVouXys_kbKZZsjz1nUeriY2rxQLznqPyejISb4vmU5kbM-bfRwJ9A";                                      // Insert your Google API key here
 $start_timestamp        = "";                                      // Unix timestamp - leave blank to load last point
@@ -47,7 +47,7 @@ $show_overview          = "yes";                                   // yes or no
 $mouse_wheel_zoom       = "yes";                                   // yes or no
 $show_map_customization = "yes";                                   // yes or no
 $units                  = "imperial";                              // imperial or metric
-$points_to_show         = 1;                                       // Maximum number of points to show on map
+$points_to_show         = 99999;                                       // Maximum number of points to show on map
 $refresh_seconds        = 5;                                       // How often (in seconds) to refresh screen
 $allow_inline_url       = "yes";                                   // Allow values to be passed in URL
 

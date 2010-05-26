@@ -33,7 +33,7 @@
 
 Body {
 font-family: Arial, Verdana, Helvetica, Sans-Serif; 
-background-color: #008080; 
+background-color: #ffffff;
 color: #000000; 
 font-size: 11pt; 
 font-weight: normal;
@@ -152,8 +152,8 @@ vertical-align: top;
 
 
 table#main {
-background-color: #00BDBD; 
-border: solid #000 3px; 
+background-color: #ffffff;
+border: solid #000 1px;
 vertical-align: top; margin-left: auto; 
 margin-right: auto;
 }
