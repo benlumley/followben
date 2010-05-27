@@ -47,7 +47,7 @@
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
   
-  include 'config.php';
+  include '../config/config.php';
 
   $timestamp_array = array();
   $findtimestamps=mysql_query("SELECT timestamp FROM " . $mysql_table . " ORDER BY timestamp");
@@ -66,7 +66,7 @@
   
 
 //    $html .= "    <meta http-equiv=\"refresh\" content=\"" . $refresh_seconds . "\">\r\n";
-  $html .= "    <script type=\"text/javascript\" src=\"java/lightbox-form.js\"></script>\r\n";
+  $html .= "    <script type=\"text/javascript\" src=\"/javascript/lightbox-form.js\"></script>\r\n";
   $html .= "    <script type=\"text/javascript\" src=\"http://maps.google.com/maps?file=api&amp;v=2&amp;key=" . $google_api_key . "\"></script>\r\n";
   $html .= "    <script type=\"text/javascript\">\r\n";
   $html .= "      function initialize()\r\n";
