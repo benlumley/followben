@@ -31,16 +31,14 @@
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 
+require('env.php');
 
 $version                = "1.10";                                   // Version
 $map_title              = "Where Is Ben?";       // Page Title
-$instamapper_api_key    = "5591835202184065782";                                      // Insert your InstaMapper API key here
-$google_api_key         = "ABQIAAAAAUguE8MuC-8PIvn0Zzd8kRQ8dVouXys_kbKZZsjz1nUeriY2rxQLznqPyejISb4vmU5kbM-bfRwJ9A";                                      // Insert your Google API key here
+
 $start_timestamp        = "";                                      // Unix timestamp - leave blank to load last point
 $end_timestamp          = "";                                      // Unix timestamp
 $no_data_message        = "No track data available";               // Message when no data is found
-$map_width              = "850";                                   // Width of map
-$map_height             = "500";                                   // Height of map
 $map_zoom_control       = "GLargeMapControl3D";                    // GLargeMapControl3D, GLargeMapControl, GSmallMapControl, GSmallZoomControl3D, GSmallZoomControl
 $show_map_type          = "yes";                                   // yes or no
 $show_overview          = "yes";                                   // yes or no
@@ -51,11 +49,6 @@ $points_to_show         = 99999;                                       // Maximu
 $refresh_seconds        = 5;                                       // How often (in seconds) to refresh screen
 $allow_inline_url       = "yes";                                   // Allow values to be passed in URL
 
-$mysql_user             = "root";                                      // MySQL User Name
-$mysql_password         = "";                                      // MySQL Password
-$mysql_host             = "localhost";                                      // MySQL Host
-$mysql_database         = "whereisben";                                      // MySQL Database
-$mysql_table            = "instamapper";                           // MySQL Table
 $mysql_update_time      = 1;                                       // Number of minutes to wait to update MySQL
 
 
