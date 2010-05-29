@@ -1,6 +1,6 @@
-Positions:
+Position:
   connection: doctrine
-  tableName: positions
+  tableName: position
   columns:
     id:
       type: integer(4)
