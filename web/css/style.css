@@ -30,6 +30,9 @@ a[href^="http:"]:visited,a[href^="http:"], a[href^="mailto:"], a[href$=".pdf"], 
 /*              HEADER                */
 /**************************************/
 
+#fblike {
+  text-align: right;
+}
 
 
 /**************************************/

@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection" />
   <![endif]-->
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+ 
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({appId: 'your app id', status: true, cookie: true,
+               xfbml: true});
+    };
+    (function() {
+      var e = document.createElement('script'); e.async = true;
+      e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+      document.getElementById('fb-root').appendChild(e);
+    }());
+  </script>
+
   <title>Follow Ben</title>
 
 
@@ -199,9 +214,12 @@
   </head>
   <body onload="initialize()" onunload="GUnload()">
     <div class="container ">
-      <div>
+      <div class="span-12">
         <h1>Follow Ben</h1>
       </div>
+      <div class="span-12 last">
+      </div>
+      <div class="clear"></div>
 
       <div class="span-6">
         <h4>What Am I Doing?</h4>
@@ -226,8 +244,8 @@
 
       <div class="clear"></div>
       <div class="span-6 ">
-<iframe src="http://www.facebook.com/plugins/livefeed.php?app_id=255955255198&amp;width=230&amp;height=600&amp;xid" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:230px; height:600px;" allowTransparency="true"></iframe>
-
+        <iframe src="http://www.facebook.com/plugins/livefeed.php?app_id=255955255198&amp;width=230&amp;height=600&amp;xid" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:230px; height:600px;" allowTransparency="true"></iframe>
+        <fb:comments numposts="20" width="230"></fb:comments>
       </div>
       <div id="map_canvas" class="span-18 last" style="height: 600px"></div>
       <div class="clear"></div>
