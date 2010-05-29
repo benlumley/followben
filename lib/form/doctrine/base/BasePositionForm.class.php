@@ -25,6 +25,9 @@ abstract class BasePositionForm extends BaseFormDoctrine
       'speed'        => new sfWidgetFormInputText(),
       'heading'      => new sfWidgetFormInputText(),
       'added'        => new sfWidgetFormInputText(),
+      'created_at'   => new sfWidgetFormDateTime(),
+      'updated_at'   => new sfWidgetFormDateTime(),
+      'deleted_at'   => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -38,6 +41,9 @@ abstract class BasePositionForm extends BaseFormDoctrine
       'speed'        => new sfValidatorNumber(array('required' => false)),
       'heading'      => new sfValidatorNumber(array('required' => false)),
       'added'        => new sfValidatorInteger(array('required' => false)),
+      'created_at'   => new sfValidatorDateTime(),
+      'updated_at'   => new sfValidatorDateTime(),
+      'deleted_at'   => new sfValidatorDateTime(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('position[%s]');

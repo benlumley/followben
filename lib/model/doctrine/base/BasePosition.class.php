@@ -145,6 +145,9 @@ abstract class BasePosition extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $softdelete0 = new Doctrine_Template_SoftDelete();
+        $this->actAs($timestampable0);
+        $this->actAs($softdelete0);
     }
 }

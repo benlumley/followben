@@ -1,4 +1,7 @@
 Position:
+  actAs:
+    Timestampable: ~
+    SoftDelete: ~
   connection: doctrine
   tableName: position
   columns:
@@ -73,3 +76,12 @@ Position:
       primary: false
       notnull: false
       autoincrement: false
+
+Day:
+  actAs:
+    Timestampable: ~
+    SoftDelete: ~
+  columns:
+    date: { type: date, primary: true }
+    title: { type: string(100), notnull: true }
+    notes: { type: clob }
