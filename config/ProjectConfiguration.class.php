@@ -9,4 +9,16 @@ class ProjectConfiguration extends sfProjectConfiguration
   {
     $this->enablePlugins('sfDoctrinePlugin');
   }
+
+  public function getEnvironment() {
+    if (strpos ( $_SERVER ['HTTP_HOST'], 'home.benlumley.co.uk' ) || strpos (dirname(__FILE__), 'whereisben' )) {
+      return 'dev';
+    } else {
+      return 'prod';
+    }
+  }
+
+
+
+
 }
