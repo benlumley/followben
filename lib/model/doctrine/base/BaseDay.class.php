@@ -7,14 +7,26 @@
  * 
  * @property date $date
  * @property string $title
+ * @property float $start_latt
+ * @property float $start_long
+ * @property float $end_latt
+ * @property float $end_long
  * @property clob $notes
  * 
- * @method date   getDate()  Returns the current record's "date" value
- * @method string getTitle() Returns the current record's "title" value
- * @method clob   getNotes() Returns the current record's "notes" value
- * @method Day    setDate()  Sets the current record's "date" value
- * @method Day    setTitle() Sets the current record's "title" value
- * @method Day    setNotes() Sets the current record's "notes" value
+ * @method date   getDate()       Returns the current record's "date" value
+ * @method string getTitle()      Returns the current record's "title" value
+ * @method float  getStartLatt()  Returns the current record's "start_latt" value
+ * @method float  getStartLong()  Returns the current record's "start_long" value
+ * @method float  getEndLatt()    Returns the current record's "end_latt" value
+ * @method float  getEndLong()    Returns the current record's "end_long" value
+ * @method clob   getNotes()      Returns the current record's "notes" value
+ * @method Day    setDate()       Sets the current record's "date" value
+ * @method Day    setTitle()      Sets the current record's "title" value
+ * @method Day    setStartLatt()  Sets the current record's "start_latt" value
+ * @method Day    setStartLong()  Sets the current record's "start_long" value
+ * @method Day    setEndLatt()    Sets the current record's "end_latt" value
+ * @method Day    setEndLong()    Sets the current record's "end_long" value
+ * @method Day    setNotes()      Sets the current record's "notes" value
  * 
  * @package    followben
  * @subpackage model
@@ -34,6 +46,22 @@ abstract class BaseDay extends sfDoctrineRecord
              'type' => 'string',
              'notnull' => true,
              'length' => 100,
+             ));
+        $this->hasColumn('start_latt', 'float', null, array(
+             'type' => 'float',
+             'length' => '',
+             ));
+        $this->hasColumn('start_long', 'float', null, array(
+             'type' => 'float',
+             'length' => '',
+             ));
+        $this->hasColumn('end_latt', 'float', null, array(
+             'type' => 'float',
+             'length' => '',
+             ));
+        $this->hasColumn('end_long', 'float', null, array(
+             'type' => 'float',
+             'length' => '',
              ));
         $this->hasColumn('notes', 'clob', null, array(
              'type' => 'clob',

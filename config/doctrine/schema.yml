@@ -84,4 +84,8 @@ Day:
   columns:
     date: { type: date, primary: true }
     title: { type: string(100), notnull: true }
+    start_latt: { type: float() }
+    start_long: { type: float() }
+    end_latt:  { type: float() }
+    end_long:  { type: float() }
     notes: { type: clob }
