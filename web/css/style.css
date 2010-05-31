@@ -26,12 +26,21 @@ a[href^="http:"]:visited,a[href^="http:"], a[href^="mailto:"], a[href$=".pdf"], 
   margin: 0;
 }
 
+hr {
+  color: #003f5e;
+  background-color: #003f5e;
+  height: 1px;
+  border: 0;
+  margin-bottom: 5px;
+}
+
 /**************************************/
 /*              HEADER                */
 /**************************************/
 
-#fblike {
+#justgiving {
   text-align: right;
+  margin-top: 60px;
 }
 
 
@@ -45,6 +54,24 @@ a[href^="http:"]:visited,a[href^="http:"], a[href^="mailto:"], a[href$=".pdf"], 
 /*            MAIN CONTENT            */
 /**************************************/
 
+div.blob {
+  background: url('/images/blob-bg.png');
+  background-repeat: no-repeat;
+  margin-top: 25px;
+  color: #ffffff;
+  height: 245px;
+  padding-bottom: 40px;
+}
+
+div.blob h2 {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+div.blob p {
+  padding: 15px;
+}
 
 
 /**************************************/
