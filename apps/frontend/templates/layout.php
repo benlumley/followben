@@ -10,5 +10,10 @@
   </head>
   <body>
     <?php echo $sf_content ?>
+    <div id="fb-root"></div>
   </body>
 </html>
+
+
+
+

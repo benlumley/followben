@@ -6,15 +6,23 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
-    #description:  symfony project
-    #keywords:     symfony, project
-    #language:     en
-    #robots:       index, follow
+    title:        Follow Ben - Lands End to John O Groats
+    description:  Track the progress of Ben Lumley as he cycles from Lands End to John O Groats for charity
+    keywords:     cycling, charity, cancer, lands end, john o groats, bike, justgiving, sponsor, benlumley, ben, lumley
+    language:     en
+    robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:
+    - screen.css: { media: 'screen,projection' }
+    - print.css: { media: 'print' }
+    - style.css: { media: 'screen,projection' }
+    - ie.css: { condition: lt IE 8 }
 
-  javascripts:    []
+  javascripts:
+    - http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js
+    - http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js
+    - http://maps.google.com/maps/api/js?sensor=false
+    - main.js
 
   has_layout:     true
   layout:         layout

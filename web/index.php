@@ -1,32 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
-  <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
-  <!--[if IE]>
-    <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection" />
-  <![endif]-->
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
- 
-  <div id="fb-root"></div>
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({appId: 'your app id', status: true, cookie: true,
-               xfbml: true});
-    };
-    (function() {
-      var e = document.createElement('script'); e.async = true;
-      e.src = document.location.protocol +
-        '//connect.facebook.net/en_US/all.js';
-      document.getElementById('fb-root').appendChild(e);
-    }());
-  </script>
-
-  <title>Follow Ben</title>
 
 
 <?php
