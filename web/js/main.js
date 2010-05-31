@@ -50,7 +50,7 @@ function populateMap(date) {
   if (typeof(date)=='undefined') {
     date = '2010-05-29';
   }
-  $.getJSON('/frontend_dev.php/route.json?date=' + date, function (data) {
+  $.getJSON('/frontend.php/route.json?date=' + date, function (data) {
     $.each(data.points, function(i,point){
       addWaypoint(point);
     });
