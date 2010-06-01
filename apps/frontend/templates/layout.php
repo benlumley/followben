@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
+    <script src="http://maps.google.com/maps?file=api&v=2&key=<?php echo sfConfig::get('app_google_maps_api_key') ?>&sensor=false"
+        type="text/javascript">
+    </script>
   </head>
   <body>
     <?php echo $sf_content ?>

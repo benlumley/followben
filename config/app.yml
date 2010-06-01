@@ -1,0 +1,7 @@
+all:
+  google_maps:
+    api_key: ABQIAAAAAUguE8MuC-8PIvn0Zzd8kRQ8dq27FwvyRdXmAcJ8AVhmcU_PkxRaXIoYOcgI26TTBL5r0hsoixhTHA
+
+dev:
+  google_maps:
+    api_key: ABQIAAAAAUguE8MuC-8PIvn0Zzd8kRQ8dVouXys_kbKZZsjz1nUeriY2rxQLznqPyejISb4vmU5kbM-bfRwJ9A
