@@ -7,15 +7,12 @@ class ProjectConfiguration extends sfProjectConfiguration
 {
   public function setup()
   {
-    $this->enablePlugins('sfDoctrinePlugin', 'sfWebBrowserPlugin');
-    $this->enablePlugins('sfWebBrowserPlugin');
+    $this->enablePlugins('sfDoctrinePlugin');
   }
 
   public function getEnvironment() {
     if (strpos ( $_SERVER ['HTTP_HOST'], 'home.benlumley.co.uk' ) || strpos (dirname(__FILE__), 'whereisben' )) {
       return 'dev';
-    } else if (strpos ( $_SERVER ['HTTP_HOST'], 'stevelacey.net' )) {
-      return 'steve';
     } else {
       return 'prod';
     }
