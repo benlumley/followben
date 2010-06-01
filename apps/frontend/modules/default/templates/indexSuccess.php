@@ -10,7 +10,6 @@
   <div class="span-6 blob">
     <h2>What Am I Doing?</h2>
     <p>I am cycling from Lands End to John O'Groats in aid of Friends of Bristol Haematology and Oncology Centre</p>
-    
   </div>
   <div class="span-6 blob">
     <h2>What's this?</h2>
@@ -34,6 +33,14 @@
     <fb:comments numposts="20" width="230"></fb:comments>
   </div>
   <div id="map_canvas" class="span-18 last" style="height: 600px"></div>
+  <div class="tweets span-18 last">
+    <h3><a href="http://www.twitter.com/benlumley">Ben's Tweets!</a></h3>
+    <ul>
+      <?php foreach($tweets as $tweet) : ?>
+        <li><?php echo $tweet->getRawValue()->getHTML() ?></li>
+      <?php endforeach ?>
+    </ul>
+  </div>
   <div class="clear"></div>
 
 

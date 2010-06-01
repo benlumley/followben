@@ -8,3 +8,11 @@ all:
       dsn:      mysql:host=localhost;dbname=whereisben
       username: root
       password: 
+
+steve:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn:      mysql:host=localhost;dbname=followben
+      username: followben
+      password: xk20tt3i5x2m1
