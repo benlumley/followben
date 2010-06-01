@@ -73,6 +73,7 @@ div.blob p {
   padding: 15px;
 }
 
+<<<<<<< HEAD:web/css/style.css
 #description {
   border: 0;
   font-size: 12px;
@@ -89,6 +90,11 @@ div.blob p {
 }
 
 
+=======
+div.tweets {
+  float: right
+}
+>>>>>>> e4e30c9... Revert "Merge commit 'github/steve'":web/css/style.css
 
 /**************************************/
 /*               FOOTER               */
