@@ -17,12 +17,10 @@ FB.init({appId: 'your app id', status: true, cookie: true,
          xfbml: true});
 };
 
-var origin = null;
-var destination = null;
 var waypoints = [];
 var map = null;
 var bounds = null;
-
+var end_point_time = null;
 
 
 function mapSetup() {
@@ -45,6 +43,10 @@ function populateMap(date) {
     date = '2010-05-29';
   }
   $.getJSON('/route.json?date=' + date, function (data) {
+    if (data.points[data.points.length-1].timestamp == end_point_time) {
+      return;
+    }
+    map.clearOverlays();
     $.each(data.points, function(i,point){
       addWaypoint(point, i, data.points.length);
     });
@@ -55,8 +57,9 @@ function populateMap(date) {
       polyline = new GPolyline(waypoints);
       map.addOverlay(polyline);
     }
-  })
-
+    end_point_time = data.points[data.points.length-1].timestamp;
+  });
+  setTimeout('populateMap()', 300000);
 }
 
 function addWaypoint(point, i, length) {
