@@ -73,6 +73,22 @@ div.blob p {
   padding: 15px;
 }
 
+#description {
+  border: 0;
+  font-size: 12px;
+}
+
+#description tr th, #description tr td  {
+  border: 0;
+  padding: 2px;
+}
+
+#description tr td.first{
+  font-weight: bold;
+  padding-right: 2px;
+}
+
+
 
 /**************************************/
 /*               FOOTER               */

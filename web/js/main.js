@@ -70,7 +70,7 @@ function addWaypoint(point, i, length) {
   var icon= new GIcon();
 
   var date = new Date(parseInt(point.timestamp) * 1000);
-  var description = '<table id="description"><tr><td>Device Name:</td><td>' + point.device_label + '</td></tr><tr><td>Date:</td><td>' + date.getDayName() + ', ' + date.getMonthName() + ' ' + date.getDate() + ', ' + date.getFullYear() + '</td></tr><tr><td>Time:</td><td>' + date.get12HourTime() + ':' + pad(date.getMinutes(), 2) + ':' +  pad(date.getSeconds(), 2) + ' ' + date.get12HourTimeSuffix() + ' ET</td></tr><tr><td>Speed:</td><td>' + point.speed + ' MPH</td></tr><tr><td>Latitude:</td><td>' + point.latitude + '</td></tr><tr><td>Longitude:</td><td>' + point.longitude + '</td></tr><tr><td>Distance:</td><td>' + point.distance + ' miles</td></tr><tr><td>Heading:</td><td>' + point.heading + ' degrees</td></tr><tr><td>Altitude:</td><td>' + point.altitude + ' feet</td></tr></table>';
+  var description = '<table id="description"><tr><td class="first">Time:</td><td>' + date.get12HourTime() + ':' + pad(date.getMinutes(), 2) + ':' +  pad(date.getSeconds(), 2) + ' ' + date.get12HourTimeSuffix() + '</td></tr><tr><td class="first">Altitude:</td><td>' + point.altitude + ' feet</td></tr></table>';
 
   if(i==0) {
     icon.image = "images/red-dot.png";
