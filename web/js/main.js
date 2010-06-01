@@ -20,13 +20,9 @@ FB.init({appId: 'your app id', status: true, cookie: true,
 var origin = null;
 var destination = null;
 var waypoints = [];
-var markers = [];
 var map = null;
 var bounds = null;
-var directionsService = null;
-var dirDisplayOptions = {
-      markerOptions: { icon: "/images/arrowno.png" }
-    }
+
 
 
 function mapSetup() {
@@ -50,15 +46,20 @@ function populateMap(date) {
   }
   $.getJSON('/route.json?date=' + date, function (data) {
     $.each(data.points, function(i,point){
-      addWaypoint(point);
+      addWaypoint(point, i, data.points.length);
     });
 
-    map.panToBounds(bounds);
+    map.setZoom(map.getBoundsZoomLevel(bounds));
+    map.setCenter(bounds.getCenter());
+    if (waypoints.length > 0) {
+      polyline = new GPolyline(waypoints);
+      map.addOverlay(polyline);
+    }
   })
 
 }
 
-function addWaypoint(point) {
+function addWaypoint(point, i, length) {
   latlng = new GLatLng(point.latitude, point.longitude);
   bounds.extend(latlng);
   waypoints.push(latlng);
@@ -68,27 +69,27 @@ function addWaypoint(point) {
   var date = new Date(parseInt(point.timestamp) * 1000);
   var description = '<table id="description"><tr><td>Device Name:</td><td>' + point.device_label + '</td></tr><tr><td>Date:</td><td>' + date.getDayName() + ', ' + date.getMonthName() + ' ' + date.getDate() + ', ' + date.getFullYear() + '</td></tr><tr><td>Time:</td><td>' + date.get12HourTime() + ':' + pad(date.getMinutes(), 2) + ':' +  pad(date.getSeconds(), 2) + ' ' + date.get12HourTimeSuffix() + ' ET</td></tr><tr><td>Speed:</td><td>' + point.speed + ' MPH</td></tr><tr><td>Latitude:</td><td>' + point.latitude + '</td></tr><tr><td>Longitude:</td><td>' + point.longitude + '</td></tr><tr><td>Distance:</td><td>' + point.distance + ' miles</td></tr><tr><td>Heading:</td><td>' + point.heading + ' degrees</td></tr><tr><td>Altitude:</td><td>' + point.altitude + ' feet</td></tr></table>';
 
-//  if(i == 0) {
-//    icon.image = "images/red-dot.png";
-//    icon.iconAnchor = new GPoint(16, 32);
-//    icon.iconSize = new GSize(30, 30);
-//    icon.infoWindowAnchor = new GPoint(16, 0);
-//  } else if(i == data.points.length-1) {
-//    icon.image = "images/green-dot.png";
-//    icon.iconAnchor = new GPoint(16, 32);
-//    icon.iconSize = new GSize(30, 30);
-//    icon.infoWindowAnchor = new GPoint(16, 0);
-//  } else {
+  if(i==0) {
+    icon.image = "images/red-dot.png";
+    icon.iconAnchor = new GPoint(16, 32);
+    icon.iconSize = new GSize(30, 30);
+    icon.infoWindowAnchor = new GPoint(16, 0);
+  } else if(i == length-1) {
+    icon.image = "images/green-dot.png";
+    icon.iconAnchor = new GPoint(16, 32);
+    icon.iconSize = new GSize(30, 30);
+    icon.infoWindowAnchor = new GPoint(16, 0);
+  } else {
     icon.image = "images/arrowno.png";
     icon.iconAnchor = new GPoint(8, 8);
     icon.iconSize = new GSize(15, 15);
     icon.infoWindowAnchor = new GPoint(8, 0);
-//  }
+  }
 
-    icon.shadow = "";
-    var marker = new GMarker(latlng, { icon:icon });
-    marker.bindInfoWindowHtml(description);
-    map.addOverlay(marker);
+  icon.shadow = "";
+  var marker = new GMarker(latlng, { icon:icon });
+  marker.bindInfoWindowHtml(description);
+  map.addOverlay(marker);
 
 }
 
