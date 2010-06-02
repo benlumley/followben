@@ -17,12 +17,10 @@ FB.init({appId: 'your app id', status: true, cookie: true,
          xfbml: true});
 };
 
-var origin = null;
-var destination = null;
 var waypoints = [];
 var map = null;
 var bounds = null;
-
+var end_point_time = null;
 
 
 function mapSetup() {
@@ -45,6 +43,10 @@ function populateMap(date) {
     date = '2010-05-29';
   }
   $.getJSON('/route.json?date=' + date, function (data) {
+    if (data.points[data.points.length-1].timestamp == end_point_time) {
+      return;
+    }
+    map.clearOverlays();
     $.each(data.points, function(i,point){
       addWaypoint(point, i, data.points.length);
     });
@@ -55,8 +57,9 @@ function populateMap(date) {
       polyline = new GPolyline(waypoints);
       map.addOverlay(polyline);
     }
-  })
-
+    end_point_time = data.points[data.points.length-1].timestamp;
+  });
+  setTimeout('populateMap()', 300000);
 }
 
 function addWaypoint(point, i, length) {
@@ -67,7 +70,7 @@ function addWaypoint(point, i, length) {
   var icon= new GIcon();
 
   var date = new Date(parseInt(point.timestamp) * 1000);
-  var description = '<table id="description"><tr><td>Device Name:</td><td>' + point.device_label + '</td></tr><tr><td>Date:</td><td>' + date.getDayName() + ', ' + date.getMonthName() + ' ' + date.getDate() + ', ' + date.getFullYear() + '</td></tr><tr><td>Time:</td><td>' + date.get12HourTime() + ':' + pad(date.getMinutes(), 2) + ':' +  pad(date.getSeconds(), 2) + ' ' + date.get12HourTimeSuffix() + ' ET</td></tr><tr><td>Speed:</td><td>' + point.speed + ' MPH</td></tr><tr><td>Latitude:</td><td>' + point.latitude + '</td></tr><tr><td>Longitude:</td><td>' + point.longitude + '</td></tr><tr><td>Distance:</td><td>' + point.distance + ' miles</td></tr><tr><td>Heading:</td><td>' + point.heading + ' degrees</td></tr><tr><td>Altitude:</td><td>' + point.altitude + ' feet</td></tr></table>';
+  var description = '<table id="description"><tr><td class="first">Time:</td><td>' + date.get12HourTime() + ':' + pad(date.getMinutes(), 2) + ':' +  pad(date.getSeconds(), 2) + ' ' + date.get12HourTimeSuffix() + '</td></tr><tr><td class="first">Altitude:</td><td>' + point.altitude + ' feet</td></tr></table>';
 
   if(i==0) {
     icon.image = "images/red-dot.png";

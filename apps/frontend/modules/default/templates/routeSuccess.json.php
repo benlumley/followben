@@ -6,7 +6,8 @@
       {
         "latitude": <?php echo $point->getLatitude() ?>,
         "longitude": <?php echo $point->getLongitude() ?>,
-        "timestamp": <?php echo $point->getTimestamp() . PHP_EOL ?>
+        "timestamp": <?php echo $point->getTimestamp() ?>,
+        "altitude": <?php echo $point->getAltitude() . PHP_EOL ?>
       }
       <?php $chunks[] = ob_get_clean() ?>
     <?php endforeach; ?>

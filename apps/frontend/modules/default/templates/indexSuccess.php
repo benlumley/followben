@@ -28,12 +28,8 @@
 
   <hr>
 
-  <div class="span-6 ">
-    <iframe src="http://www.facebook.com/plugins/livefeed.php?app_id=255955255198&amp;width=230&amp;height=600&amp;xid" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:230px; height:600px;" allowTransparency="true"></iframe>
-    <fb:comments numposts="20" width="230"></fb:comments>
-  </div>
-  <div id="map_canvas" class="span-18 last" style="height: 600px"></div>
-  <div class="tweets span-18 last">
+  <div id="map_canvas" class="span-18" style="height: 600px"></div>
+  <div class="span-6 last">
     <h3><a href="http://www.twitter.com/benlumley">Ben's Tweets!</a></h3>
     <ul>
       <?php foreach($tweets as $tweet) : ?>
@@ -41,6 +37,17 @@
       <?php endforeach ?>
     </ul>
   </div>
+
+  <div class="clear"></div>
+
+  <div class="span-18">
+    <!--<iframe src="http://www.facebook.com/plugins/livefeed.php?app_id=255955255198&amp;width=230&amp;height=600&amp;xid" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:230px; height:600px;" allowTransparency="true"></iframe>-->
+    <fb:comments numposts="20" width="710"></fb:comments>
+  </div>
+  <div class="span-6 last">
+    
+  </div>
+
   <div class="clear"></div>
 
 
