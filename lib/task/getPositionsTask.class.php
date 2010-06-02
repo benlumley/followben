@@ -3,7 +3,7 @@
 class getPositionsTask extends sfBaseTask {
   protected function configure() {
     $this->addOptions(array(
-      new sfCommandOption('application', null, sfCommandOption::PARAMETER_REQUIRED, 'The application name'),
+      new sfCommandOption('application', null, sfCommandOption::PARAMETER_REQUIRED, 'The application name', 'frontend'),
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
       new sfCommandOption('connection', null, sfCommandOption::PARAMETER_REQUIRED, 'The connection name', 'doctrine'),
     ));
@@ -12,7 +12,7 @@ class getPositionsTask extends sfBaseTask {
     $this->name             = 'get-positions';
     $this->briefDescription = '';
     $this->detailedDescription = <<<EOF
-The [get-positions|INFO] task retrives instamapper data from their API.
+The [get-positions|INFO] task retrieves instamapper data from their API.
 Call it with:
 
   [php symfony get-positions|INFO]
@@ -38,7 +38,7 @@ EOF;
         $json = json_decode($instamapper->getResponseText());
 
         foreach ($json->positions as $gps) {
-          if(!$latest instanceOf Position || $gps->timestamp <= $latest->getTimestamp()) {
+          if(!$latest instanceOf Position || $gps->timestamp >= $latest->getTimestamp()) {
             $position = new Position();
 
             $position->setDeviceKey($gps->device_key);

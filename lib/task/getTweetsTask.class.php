@@ -3,7 +3,7 @@
 class getTweetsTask extends sfBaseTask {
   protected function configure() {
     $this->addOptions(array(
-      new sfCommandOption('application', null, sfCommandOption::PARAMETER_REQUIRED, 'The application name'),
+      new sfCommandOption('application', null, sfCommandOption::PARAMETER_REQUIRED, 'The application name', 'frontend'),
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
       new sfCommandOption('connection', null, sfCommandOption::PARAMETER_REQUIRED, 'The connection name', 'doctrine'),
     ));
@@ -12,13 +12,12 @@ class getTweetsTask extends sfBaseTask {
     $this->name             = 'get-tweets';
     $this->briefDescription = '';
     $this->detailedDescription = <<<EOF
-The [get-tweets|INFO] task retrives tweets for the given username and enriches results via the individual tweet API.
+The [get-tweets|INFO] task retrieves tweets for the given username and enriches results via the individual tweet API.
 Call it with:
 
   [php symfony get-tweets|INFO]
 EOF;
 
-	 $this->username         = 'benlumley';
 	 $this->new              = 0;
 	 $this->updated          = 0;
   }
@@ -29,8 +28,8 @@ EOF;
     
     $web = new sfWebBrowser();
     
-    $this->logSection($this->namespace, 'Getting latest tweets for @'.$this->username);
-    $atom = $web->get('http://search.twitter.com/search.atom?q=from:'.$this->username.'&rpp=5');
+    $this->logSection($this->namespace, 'Getting latest tweets for @'.sfConfig::get('app_twitter_username'));
+    $atom = $web->get('http://search.twitter.com/search.atom?q=from:'.sfConfig::get('app_twitter_username').'&rpp=5');
 
     try {
       if(!$atom->responseIsError()) {
