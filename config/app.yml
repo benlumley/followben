@@ -7,3 +7,7 @@ all:
 dev:
   google_maps:
     api_key: ABQIAAAAAUguE8MuC-8PIvn0Zzd8kRQ8dVouXys_kbKZZsjz1nUeriY2rxQLznqPyejISb4vmU5kbM-bfRwJ9A
+
+steve:
+  google_maps:
+    api_key: ABQIAAAA39xGXh7F7QnZhiEHkhlvvRRDRv1eN9uLa1WzeqYMD8xZCQfpqRRIf4yDbv5iVchPix0umLBuOMttEA
