@@ -16,6 +16,7 @@ default:
     - screen.css: { media: 'screen,projection' }
     - print.css: { media: 'print' }
     - style.css: { media: 'screen,projection' }
+    - jquery-ui.css: { media: 'screen,projection' }
     - ie.css: { condition: lt IE 8 }
 
   javascripts:

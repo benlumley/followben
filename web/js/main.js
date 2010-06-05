@@ -1,6 +1,20 @@
 $(document).ready(function () {
+  var today = new Date();
+  var date = $('.date .from.selector').val().split('/')
+
   mapSetup();
-  populateMap();
+  populateMap(today.getFullYear() + '-' + date[1] + '-' + date[0]);
+
+  $('.date .from.selector').each(function() {
+    $(this).datepicker({
+      'dateFormat': 'dd/mm',
+      'maxDate': today
+    });
+    $(this).change(function() {
+      var date = $(this).val().split('/')
+      populateMap(today.getFullYear() + '-' + date[1] + '-' + date[0]);
+    });
+  });
 
   (function() {
     var e = document.createElement('script'); e.async = true;
@@ -8,8 +22,6 @@ $(document).ready(function () {
       '//connect.facebook.net/en_US/all.js';
     document.getElementById('fb-root').appendChild(e);
   }());
-
-
 });
 
 window.fbAsyncInit = function() {
@@ -26,7 +38,7 @@ var end_point_time = null;
 function mapSetup() {
     var myLatlng = new GLatLng(54, -4);
     bounds = new GLatLngBounds();
-    map = new GMap2(document.getElementById("map_canvas"));
+    map = new GMap2(document.getElementById("canvas"));
     map.addControl(new GMapTypeControl());
     map.enableScrollWheelZoom();
     map.addControl(new GLargeMapControl3D());
@@ -39,14 +51,9 @@ function mapSetup() {
 
 
 function populateMap(date) {
-  if (typeof(date)=='undefined') {
-    date = '2010-06-05';
-  }
   $.getJSON('/route.json?date=' + date, function (data) {
-    if (data.points[data.points.length-1].timestamp == end_point_time) {
-      return;
-    }
     map.clearOverlays();
+
     $.each(data.points, function(i,point){
       addWaypoint(point, i, data.points.length);
     });
@@ -57,7 +64,6 @@ function populateMap(date) {
       polyline = new GPolyline(waypoints);
       map.addOverlay(polyline);
     }
-    end_point_time = data.points[data.points.length-1].timestamp;
   });
   setTimeout('populateMap()', 300000);
 }

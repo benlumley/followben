@@ -43,18 +43,11 @@ hr {
   margin-top: 60px;
 }
 
-
-/**************************************/
-/*             NAVIGATION             */
-/**************************************/
-
-
-
 /**************************************/
 /*            MAIN CONTENT            */
 /**************************************/
 
-div.blob {
+.blob {
   background: url('/images/blob-bg.png');
   background-repeat: no-repeat;
   margin-top: 25px;
@@ -63,13 +56,13 @@ div.blob {
   padding-bottom: 40px;
 }
 
-div.blob h2 {
+.blob h2 {
   text-align: center;
   font-weight: bold;
   margin: 10px 0;
 }
 
-div.blob p {
+.blob p {
   padding: 15px;
 }
 
@@ -88,11 +81,54 @@ div.blob p {
   padding-right: 2px;
 }
 
-div.tweets {
+.map, #canvas {
+  height: 600px;
+}
+
+.map .overlay {
+  position: relative;
+  top: -570px;
+  float: right;
+  margin-right: 7px;
+}
+
+.map .overlay .content {
+  background: #FFF;
+  border: 1px solid #000;
+  margin-top: 10px;
+  padding: 4px 4px 5px;
+}
+
+.map .overlay .date .selector {
+  width: 40px;
+}
+
+.map .overlay .date .from.selector {
+  float: left;
+}
+
+.map .overlay .date .to.selector {
+  float: right;
+}
+
+.map .overlay .date span {
+  width: 38px;
+  float: left;
+  text-align: center;
+}
+
+.tweets {
   float: right
+}
+
+.tweets h3 {
+  margin-top: 0.57em;
 }
 
 /**************************************/
 /*               FOOTER               */
 /**************************************/
 
+.footer {
+  text-align: right;
+}

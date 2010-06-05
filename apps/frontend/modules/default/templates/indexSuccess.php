@@ -1,9 +1,11 @@
-<div class="container ">
+<div class="container">
   <div class="span-12">
-    <img src="images/logo.png" alt="Follow Ben">
+    <a href="/"><img src="images/logo.png" alt="Follow Ben"/></a>
   </div>
   <div class="span-12 last" id="justgiving">
-    <a href= 'http://www.justgiving.com/ben-lumley' alt='JustGiving - Sponsor me!' target='_blank'> <img src='/images/justgiving.png' width='230' height='50'> </a>
+    <a href="http://www.justgiving.com/ben-lumley" title="JustGiving - Sponsor me!" target="_blank">
+      <img src="/images/justgiving.png" width="230" height="50" alt="JustGiving - Sponsor me!"/>
+    </a>
   </div>
   <div class="clear"></div>
 
@@ -26,10 +28,24 @@
     <p>This map will let you keep an eye on my progress, whilst subtly convincing you to sponsor me!</p>
   </div>
 
-  <hr>
+  <hr/>
 
-  <div id="map_canvas" class="span-18" style="height: 600px"></div>
-  <div class="span-6 last">
+  <div class="map span-18">
+    <div id="canvas">
+      Map Loading...
+    </div>
+    <div class="overlay span-4">
+      <div class="date content">
+        <form action="" method="post">
+          <input type="text" name="start_timestamp" class="from selector" value="<?php echo date('d/m') ?>"/>
+          <span>to</span>
+          <input type="text" name="end_timestamp" class="to selector" value="<?php echo date('d/m') ?>" disabled="disabled"/>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="tweets span-6 last">
     <h3><a href="http://www.twitter.com/benlumley">Ben's Tweets!</a></h3>
     <ul>
       <?php foreach($tweets as $tweet) : ?>
@@ -50,8 +66,11 @@
 
   <div class="clear"></div>
 
+  <!--
+    <object type="application/x-shockwave-flash" allowScriptAccess="always" height="230" width="150" align="middle" data="http://www.justgiving.com/widgets/jgwidget.swf" flashvars="EggId=2420906&IsMS=0"><param name="movie" value="http://www.justgiving.com/widgets/jgwidget.swf" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="quality" value="high" /><param name="wmode" value="transparent" /><param name="flashvars" value="EggId=2420906&IsMS=0" /></object>
+  -->
 
-<!--
-  <object type="application/x-shockwave-flash" allowScriptAccess="always" height="230" width="150" align="middle" data="http://www.justgiving.com/widgets/jgwidget.swf" flashvars="EggId=2420906&IsMS=0"><param name="movie" value="http://www.justgiving.com/widgets/jgwidget.swf" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="quality" value="high" /><param name="wmode" value="transparent" /><param name="flashvars" value="EggId=2420906&IsMS=0" /></object>
--->
+  <div class="footer">
+    Website by <a href="http://www.twitter.com/benlumley">@benlumley</a> and <a href="http://www.twitter.com/stevelacey">@stevelacey</a>
+  </div>
 </div>
