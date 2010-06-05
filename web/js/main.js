@@ -79,8 +79,7 @@ function addWaypoint(point, i, length) {
   var icon= new GIcon();
 
   var date = new Date(parseInt(point.timestamp) * 1000);
-  var description = '<table id="description"><tr><td class="first">Time:</td><td>' + date.get12HourTime() + ':' + pad(date.getMinutes(), 2) + ':' +  pad(date.getSeconds(), 2) + ' ' + date.get12HourTimeSuffix() + '</td></tr><tr><td class="first">Altitude:</td><td>' + point.altitude + ' feet</td></tr></table>';
-
+  var description = '<table id="description"><tr><td class="first">Time:</td><td>' + date.get12HourTime() + ':' + pad(date.getMinutes(), 2) + ' ' + date.get12HourTimeSuffix() + '</td></tr></table>';
   if(i==0) {
     icon.image = "images/red-dot.png";
     icon.iconAnchor = new GPoint(16, 32);
