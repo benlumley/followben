@@ -40,7 +40,7 @@ function mapSetup() {
 
 function populateMap(date) {
   if (typeof(date)=='undefined') {
-    date = '2010-05-29';
+    date = '2010-06-05';
   }
   $.getJSON('/route.json?date=' + date, function (data) {
     if (data.points[data.points.length-1].timestamp == end_point_time) {
