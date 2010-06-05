@@ -33,11 +33,11 @@ var waypoints = [];
 var map = null;
 var bounds = null;
 var end_point_time = null;
+var timer = null;
 
 
 function mapSetup() {
     var myLatlng = new GLatLng(54, -4);
-    bounds = new GLatLngBounds();
     map = new GMap2(document.getElementById("canvas"));
     map.addControl(new GMapTypeControl());
     map.enableScrollWheelZoom();
@@ -53,6 +53,8 @@ function mapSetup() {
 function populateMap(date) {
   $.getJSON('/route.json?date=' + date, function (data) {
     map.clearOverlays();
+    bounds = new GLatLngBounds();
+    waypoints = [];
 
     $.each(data.points, function(i,point){
       addWaypoint(point, i, data.points.length);
@@ -65,7 +67,8 @@ function populateMap(date) {
       map.addOverlay(polyline);
     }
   });
-  setTimeout('populateMap()', 300000);
+  clearTimeout(timer);
+  timer = setTimeout('populateMap(\'' + date + '\')', 20000);
 }
 
 function addWaypoint(point, i, length) {
