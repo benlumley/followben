@@ -50,7 +50,7 @@
     <ul id="twitter">
       <?php foreach($tweets as $tweet) : ?>
         <li>
-          <span class="tweet"><?php echo $tweet->getRawValue()->getHTML() ?></span>
+          <span class="tweet"><?php echo preg_replace('/<a[^>]+>#[^<]+<\/a>/', '', $tweet->getRawValue()->getHTML()) ?></span>
           <span class="time">at <?php echo $tweet->getDateTimeObject('created_at')->format('h:i') ?></span>
         </li>
       <?php endforeach ?>
