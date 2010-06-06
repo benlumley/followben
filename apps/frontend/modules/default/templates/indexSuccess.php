@@ -46,19 +46,22 @@
   </div>
 
   <div class="tweets span-6 last">
-    <h3><a href="http://www.twitter.com/benlumley">Ben's Tweets!</a></h3>
-    <ul>
+    <h3>The Latest ...</h3>
+    <ul id="twitter">
       <?php foreach($tweets as $tweet) : ?>
-        <li><?php echo $tweet->getRawValue()->getHTML() ?></li>
+        <li>
+          <span class="tweet"><?php echo $tweet->getRawValue()->getHTML() ?></span>
+          <span class="time">at <?php echo $tweet->getDateTimeObject('created_at')->format('h:i') ?></span>
+        </li>
       <?php endforeach ?>
     </ul>
+    <fb:comments numposts="20" width="60"></fb:comments>
   </div>
 
   <div class="clear"></div>
 
   <div class="span-18">
     <!--<iframe src="http://www.facebook.com/plugins/livefeed.php?app_id=255955255198&amp;width=230&amp;height=600&amp;xid" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:230px; height:600px;" allowTransparency="true"></iframe>-->
-    <fb:comments numposts="20" width="710"></fb:comments>
   </div>
   <div class="span-6 last">
     
@@ -69,7 +72,7 @@
   <!--
     <object type="application/x-shockwave-flash" allowScriptAccess="always" height="230" width="150" align="middle" data="http://www.justgiving.com/widgets/jgwidget.swf" flashvars="EggId=2420906&IsMS=0"><param name="movie" value="http://www.justgiving.com/widgets/jgwidget.swf" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="quality" value="high" /><param name="wmode" value="transparent" /><param name="flashvars" value="EggId=2420906&IsMS=0" /></object>
   -->
-
+  <hr/>
   <div class="footer">
     Website by <a href="http://www.twitter.com/benlumley">@benlumley</a> and <a href="http://www.twitter.com/stevelacey">@stevelacey</a>
   </div>

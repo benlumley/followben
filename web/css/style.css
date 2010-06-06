@@ -123,6 +123,27 @@ hr {
 
 .tweets h3 {
   margin-top: 0.57em;
+  font-size: 12pt;
+  color: #00516B;
+}
+
+.tweets ul#twitter {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+}
+
+.tweets ul#twitter li {
+  list-style: none;
+  border: #00516B 1px solid;
+  margin: 0;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.tweets ul#twitter li span.time {
+  font-style: italic;
 }
 
 /**************************************/

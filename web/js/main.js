@@ -16,6 +16,8 @@ $(document).ready(function () {
     });
   });
 
+  initTweets();
+
   (function() {
     var e = document.createElement('script'); e.async = true;
     e.src = document.location.protocol +
@@ -126,4 +128,37 @@ Date.prototype.get12HourTime = function() {
 }
 Date.prototype.get12HourTimeSuffix = function() {
   return this.getHours()>12 ? 'pm' : 'am';
+}
+
+var tweets;
+function initTweets() {
+
+  frame = $('ul#twitter');
+  tweets = $('ul#twitter li');
+
+  tweets.hide();
+
+  frame.css(
+    {
+      "overflow":"hidden"
+    }
+  );
+  $(tweets[0]).show();
+
+  setTimeout('nextTweet()', 10000);
+}
+
+function nextTweet() {
+  var done = false;
+  tweets.each(function (i) {
+    if (!done && $(this).is(':visible')) {
+      done=true;
+      next = i+1;
+      if (typeof(tweets[next])=='undefined') {
+        next = 0;
+      }
+      $(this).fadeOut(500, function () {$(tweets[next]).fadeIn(800)});
+    }
+  })
+  setTimeout('nextTweet()', 10000);
 }
