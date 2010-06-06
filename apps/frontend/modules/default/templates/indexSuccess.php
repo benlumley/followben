@@ -2,30 +2,31 @@
   <div class="span-12">
     <a href="/"><img src="images/logo.png" alt="Follow Ben"/></a>
   </div>
-  <div class="span-12 last" id="justgiving">
-    <a href="http://www.justgiving.com/ben-lumley" title="JustGiving - Sponsor me!" target="_blank">
-      <img src="/images/justgiving.png" width="230" height="50" alt="JustGiving - Sponsor me!"/>
-    </a>
+  <div class="span-12 last">
+    <div id="fblike"><fb:like href="http://followben.co.uk" show_faces="false" width="470"></fb:like></div>
+    <div id="justgiving">
+      <a href="http://www.justgiving.com/ben-lumley" title="JustGiving - Sponsor me!" target="_blank">
+        <img src="/images/justgiving.png" width="230" height="50" alt="JustGiving - Sponsor me!"/>
+      </a>
+    </div>
   </div>
   <div class="clear"></div>
 
   <div class="span-6 blob">
-    <h2>What Am I Doing?</h2>
-    <p>I am cycling from Lands End to John O'Groats in aid of Friends of Bristol Haematology and Oncology Centre</p>
+    <h2>You can follow me</h2>
+    <p>Keep an eye on the map below and you can follow me on my cycle ride from Lands End to John O'Groats. I'm off early on Friday morning, and cycling around 100 miles a day, plan to reach John O'Groats the following Saturday.</p>
   </div>
   <div class="span-6 blob">
-    <h2>What's this?</h2>
-    <p>Its a map that will show.</p>
+    <h2>You can support me</h2>
+    <p>It's not going to be easy - and I'm going to need your support. In between Mars bars and Lucozades I'll be sending you the latest news (look out for updates in the box to the right of the map) - so please humour me, and post your comments of encouragement!</p>
   </div>
   <div class="span-6 blob">
-    <h2>Follow Me</h2>
-    <p>I am cycling from Lands End to John O'Groats in aid of the Friends of Bristol Haematology and Oncology Centre at the BRI in Bristol</p>
-    <p>This map will let you keep an eye on my progress, whilst subtly convincing you to sponsor me!</p>
-  </div>
+    <h2>You can ask why</h2>
+    <p>I'm not doing this just to prove my masculinity (or to keep Travelodge in business), but to raise money for the Friends of Bristol Haematology and Oncology Centre. They do fantastic work - including funding research, equipment and projects that improve the comfort of cancer patients undergoing treatment.</p>
+     </div>
   <div class="span-6 blob last">
-    <h2>Sponsor Me</h2>
-    <p>I am cycling from Lands End to John O'Groats in aid of the Friends of Bristol Haematology and Oncology Centre at the BRI in Bristol</p>
-    <p>This map will let you keep an eye on my progress, whilst subtly convincing you to sponsor me!</p>
+    <h2>You can sponsor me</h2>
+    <p>A huge thank you to everyone who has already kindly sponsored me. But the more the merrier. You can donate online at justgiving - and as I'm funding all of the trip myself, all donations will go straight to the Friends group.</p>
   </div>
 
   <hr/>
@@ -46,7 +47,7 @@
   </div>
 
   <div class="tweets span-8 last">
-    <h3>The Latest ...</h3>
+    <h3>News from the road...</h3>
     <ul id="twitter">
       <?php foreach($tweets as $tweet) : ?>
         <li>
@@ -56,7 +57,7 @@
         </li>
       <?php endforeach ?>
     </ul>
-    <h3>Post A Comment...</h3>
+    <h3>Post a comment...</h3>
     <fb:comments numposts="20" width="310"></fb:comments>
   </div>
 

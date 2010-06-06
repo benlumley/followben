@@ -7,7 +7,7 @@ $(document).ready(function () {
 
   $('.date .from.selector').each(function() {
     $(this).datepicker({
-      'dateFormat': 'dd/mm',
+      'dateFormat': 'D d M',
       'maxDate': today
     });
     $(this).change(function() {
