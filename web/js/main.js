@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var today = new Date();
-  var date = $('.date .from.selector').val().split('/')
+  var date = $('#real_start_timestamp').val().split('/');
 
   mapSetup();
   populateMap(today.getFullYear() + '-' + date[1] + '-' + date[0]);
@@ -8,10 +8,12 @@ $(document).ready(function () {
   $('.date .from.selector').each(function() {
     $(this).datepicker({
       'dateFormat': 'D d M',
-      'maxDate': today
+      'maxDate': today,
+      'altField': '#real_start_timestamp',
+      'altFormat': 'dd/mm'
     });
     $(this).change(function() {
-      var date = $(this).val().split('/')
+      var date = $('#real_start_timestamp').val().split('/');
       populateMap(today.getFullYear() + '-' + date[1] + '-' + date[0]);
     });
   });

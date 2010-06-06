@@ -35,12 +35,15 @@
     <div id="canvas">
       Map Loading...
     </div>
-    <div class="overlay span-4">
+    <div class="overlay">
       <div class="date content">
         <form action="" method="post">
-          <input type="text" name="start_timestamp" class="from selector" value="<?php echo date('d/m') ?>"/>
+          <span>From</span>
+          <input type="text" name="start_timestamp" class="from selector" value="<?php echo date('D d M') ?>"/>
           <span>to</span>
-          <input type="text" name="end_timestamp" class="to selector" value="<?php echo date('d/m') ?>" disabled="disabled"/>
+          <input type="text" name="end_timestamp" class="to selector" value="<?php echo date('D d M') ?>" disabled="disabled"/>
+          <input type="hidden" name="real_start_timestamp" id="real_start_timestamp" value="<?php echo date('d/m') ?>">
+          <input type="hidden" name="real_end_timestamp" id="real_end_timestamp" value="<?php echo date('d/m') ?>">
         </form>
       </div>
     </div>
@@ -77,6 +80,6 @@
   -->
   <hr/>
   <div class="footer">
-    Website by Ben Lumley and <a href="http://www.twitter.com/stevelacey">@stevelacey</a>
+    Website by Ben Lumley and <a href="http://www.twitter.com/stevelacey" target="_blank">@stevelacey</a> | Design by <a href="http://flatelephantdesign.com/" target="_blank">Flat Elephant Design</a>
   </div>
 </div>
