@@ -16,7 +16,7 @@ class defaultActions extends sfActions
   * @param sfRequest $request A request object
   */
   public function executeIndex(sfWebRequest $request) {
-    $this->tweets = Doctrine::getTable('Tweet')->getLatest(sfConfig::get('app_twitter_display'));
+    $this->tweets = Doctrine::getTable('Tweet')->getLatestKeywords(array('le2jog', 'justgiving'), sfConfig::get('app_twitter_display'));
   }
 
   public function executeRoute(sfWebRequest $request) {
