@@ -51,11 +51,11 @@
       <?php foreach($tweets as $tweet) : ?>
         <li>
           <span class="tweet"><?php echo preg_replace('/<a[^>]+>#[^<]+<\/a>/', '', $tweet->getRawValue()->getHTML()) ?></span>
-          <span class="time">at <?php echo $tweet->getDateTimeObject('created_at')->format('h:i') ?></span>
+          <span class="time"><?php echo nice_time($tweet->getDateTimeObject('created_at')->format('U')) ?></span>
         </li>
       <?php endforeach ?>
     </ul>
-    <fb:comments numposts="20" width="60"></fb:comments>
+    <fb:comments numposts="20" width="230"></fb:comments>
   </div>
 
   <div class="clear"></div>
