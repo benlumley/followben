@@ -30,5 +30,13 @@ class defaultActions extends sfActions
     $q->where('p.timestamp BETWEEN ? AND ?', array(mktime(0,0,0, date('n', $date), date('j', $date), date('Y', $date)), mktime(23,59,0, date('n'), date('j'), date('Y'))));
     $q->addOrderBy('p.timestamp');
     $this->points = $q->execute();
+
+    if ($this->points->count()==0) {
+      $q = Doctrine::getTable('Position')->createQuery('p');
+      $q->limit(1);
+      $q->orderBy('p.timestamp DESC');
+      $this->points = $q->execute();
+    }
+
   }
 }
