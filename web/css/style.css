@@ -131,19 +131,21 @@ hr {
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 100px;
+  height: 75px;
 }
 
 .tweets ul#twitter li {
   list-style: none;
-  border: #00516B 1px solid;
+  border: #CCCCCC 1px solid;
   margin: 0;
   padding: 5px;
   margin-bottom: 5px;
+  background-color: #f2f2f2;
 }
 
 .tweets ul#twitter li span.time {
   font-style: italic;
+  float: right;
 }
 
 /**************************************/
@@ -151,5 +153,18 @@ hr {
 /**************************************/
 
 .footer {
-  text-align: right;
+  text-align: center;
+  color: #CCCCCC;
+}
+
+.footer a {
+  color: #CCCCCC;
+}
+
+/**************************************/
+/*               FACEBOOK             */
+/**************************************/
+
+.wallkit_form {
+  padding: 0;
 }

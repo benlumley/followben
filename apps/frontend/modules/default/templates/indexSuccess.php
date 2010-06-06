@@ -30,7 +30,7 @@
 
   <hr/>
 
-  <div class="map span-18">
+  <div class="map span-16">
     <div id="canvas">
       Map Loading...
     </div>
@@ -45,17 +45,19 @@
     </div>
   </div>
 
-  <div class="tweets span-6 last">
+  <div class="tweets span-8 last">
     <h3>The Latest ...</h3>
     <ul id="twitter">
       <?php foreach($tweets as $tweet) : ?>
         <li>
           <span class="tweet"><?php echo preg_replace('/<a[^>]+>#[^<]+<\/a>/', '', $tweet->getRawValue()->getHTML()) ?></span>
           <span class="time"><?php echo nice_time($tweet->getDateTimeObject('created_at')->format('U')) ?></span>
+          <div class="clear"></div>
         </li>
       <?php endforeach ?>
     </ul>
-    <fb:comments numposts="20" width="230"></fb:comments>
+    <h3>Post A Comment...</h3>
+    <fb:comments numposts="20" width="310"></fb:comments>
   </div>
 
   <div class="clear"></div>
@@ -74,6 +76,6 @@
   -->
   <hr/>
   <div class="footer">
-    Website by <a href="http://www.twitter.com/benlumley">@benlumley</a> and <a href="http://www.twitter.com/stevelacey">@stevelacey</a>
+    Website by Ben Lumley and <a href="http://www.twitter.com/stevelacey">@stevelacey</a>
   </div>
 </div>

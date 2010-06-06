@@ -27,7 +27,7 @@ $(document).ready(function () {
 });
 
 window.fbAsyncInit = function() {
-FB.init({appId: 'your app id', status: true, cookie: true,
+FB.init({appId: '129755327051677', status: true, cookie: true,
          xfbml: true});
 };
 
