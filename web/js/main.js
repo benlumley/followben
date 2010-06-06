@@ -100,7 +100,7 @@ function addWaypoint(point, i, length) {
     icon.iconSize = new GSize(15, 15);
     icon.infoWindowAnchor = new GPoint(8, 0);
   }
-console.log(icon.image);
+
   icon.shadow = "";
   var marker = new GMarker(latlng, { icon:icon });
   marker.bindInfoWindowHtml(description);
