@@ -84,13 +84,13 @@ function addWaypoint(point, i, length) {
 
   var date = new Date(parseInt(point.timestamp) * 1000);
   var description = '<table id="description"><tr><td class="first">Time:</td><td>' + date.get12HourTime() + ':' + pad(date.getMinutes(), 2) + ' ' + date.get12HourTimeSuffix() + '</td></tr></table>';
-  if(i==0) {
-    icon.image = "images/red-dot.png";
+  if(i == length-1) {
+    icon.image = "images/cyclingsport.png";
     icon.iconAnchor = new GPoint(16, 32);
-    icon.iconSize = new GSize(30, 30);
+    icon.iconSize = new GSize(32, 37);
     icon.infoWindowAnchor = new GPoint(16, 0);
-  } else if(i == length-1) {
-    icon.image = "images/green-dot.png";
+  } else if(i==0) {
+    icon.image = "images/red-dot.png";
     icon.iconAnchor = new GPoint(16, 32);
     icon.iconSize = new GSize(30, 30);
     icon.infoWindowAnchor = new GPoint(16, 0);
@@ -100,7 +100,7 @@ function addWaypoint(point, i, length) {
     icon.iconSize = new GSize(15, 15);
     icon.infoWindowAnchor = new GPoint(8, 0);
   }
-
+console.log(icon.image);
   icon.shadow = "";
   var marker = new GMarker(latlng, { icon:icon });
   marker.bindInfoWindowHtml(description);
