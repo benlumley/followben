@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
@@ -10,11 +10,13 @@
     <script src="http://maps.google.com/maps?file=api&v=2&key=<?php echo sfConfig::get('app_google_maps_api_key') ?>&sensor=false"
         type="text/javascript">
     </script>
+    <meta property='fb:app_id' content='129755327051677' />
+    <meta property="og:site_name" content="Follow Ben - Lands End to John O Groats" />
   </head>
   <body>
+    <div id="fb-root">&nbsp;</div>
     <?php echo $sf_content ?>
-    <div id="fb-root"></div>
-    <script>
+    <script type="text/javascript">
       window.fbAsyncInit = function() {
         FB.init({appId: '129755327051677', status: true, cookie: true, xfbml: true});
       };
