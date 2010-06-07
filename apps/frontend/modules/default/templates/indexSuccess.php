@@ -61,7 +61,7 @@
       <?php endforeach ?>
     </ul>
     <h3>Post a comment...</h3>
-    <fb:comments numposts="20" width="310" url="http://followben.co.uk/" css="http://followben.co.uk/css/fbcomments.css"></fb:comments>
+    <fb:comments numposts="20" width="310" url="http://followben.co.uk/" css="http://followben.co.uk/css/fbcomments.css?1=1"></fb:comments>
   </div>
 
   <div class="clear"></div>
