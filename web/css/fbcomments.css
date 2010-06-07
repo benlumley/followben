@@ -2,7 +2,7 @@ div.like {
   display: none;
 }
 
-#captcha #recaptcha_image {
-  float: right;
-  margin-right: -15px;
+div.captcha_image {
+  float: right !important;
+  margin-right: -15px !important;
 }
