@@ -14,7 +14,10 @@
   <body>
     <?php echo $sf_content ?>
     <div id="fb-root"></div>
-    <script type="text/javascript">
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({appId: '129755327051677', status: true, cookie: true, xfbml: true});
+      };
       (function() {
         var e = document.createElement('script'); e.async = true;
         e.src = document.location.protocol +
