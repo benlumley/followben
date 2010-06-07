@@ -8,7 +8,7 @@ $(document).ready(function () {
   $('.date .from.selector').each(function() {
     $(this).datepicker({
       'dateFormat': 'D d M',
-      'maxDate': today,
+      'maxDate': 'today',
       'altField': '#real_start_timestamp',
       'altFormat': 'dd/mm'
     });
