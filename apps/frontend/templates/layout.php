@@ -15,6 +15,14 @@
     <?php echo $sf_content ?>
     <div id="fb-root"></div>
     <script type="text/javascript">
+      (function() {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol +
+          '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+      }());
+    </script>
+    <script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-16755254-1']);

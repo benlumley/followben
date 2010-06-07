@@ -61,23 +61,11 @@
       <?php endforeach ?>
     </ul>
     <h3>Post a comment...</h3>
-    <fb:comments numposts="20" width="310"></fb:comments>
+    <fb:comments numposts="20" width="310" url="http://followben.co.uk/"></fb:comments>
   </div>
 
   <div class="clear"></div>
 
-  <div class="span-18">
-    <!--<iframe src="http://www.facebook.com/plugins/livefeed.php?app_id=255955255198&amp;width=230&amp;height=600&amp;xid" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:230px; height:600px;" allowTransparency="true"></iframe>-->
-  </div>
-  <div class="span-6 last">
-    
-  </div>
-
-  <div class="clear"></div>
-
-  <!--
-    <object type="application/x-shockwave-flash" allowScriptAccess="always" height="230" width="150" align="middle" data="http://www.justgiving.com/widgets/jgwidget.swf" flashvars="EggId=2420906&IsMS=0"><param name="movie" value="http://www.justgiving.com/widgets/jgwidget.swf" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="quality" value="high" /><param name="wmode" value="transparent" /><param name="flashvars" value="EggId=2420906&IsMS=0" /></object>
-  -->
   <hr/>
   <div class="footer">
     Website by Ben Lumley and <a href="http://www.twitter.com/stevelacey" target="_blank">@stevelacey</a> | Design by <a href="http://flatelephantdesign.com/" target="_blank">Flat Elephant Design</a>
