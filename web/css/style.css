@@ -123,6 +123,7 @@ hr {
 .map .overlay .date .from.selector {
   text-decoration: underline;
   color: #0000FF;
+  cursor: pointer;
 }
 
 .map .overlay .date .to.selector {
