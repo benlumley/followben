@@ -29,7 +29,7 @@ EOF;
     $web = new sfWebBrowser();
     
     $this->logSection($this->namespace, 'Getting latest tweets for @'.sfConfig::get('app_twitter_username'));
-    $atom = $web->get('http://search.twitter.com/search.atom?q=from:'.sfConfig::get('app_twitter_username').'&rpp=5');
+    $atom = $web->get('http://search.twitter.com/search.atom?q=from:'.sfConfig::get('app_twitter_username').'&rpp=200');
 
     try {
       if(!$atom->responseIsError()) {
@@ -67,6 +67,10 @@ EOF;
               if(isset($json->in_reply_to_user_id)) {
                 $tweet->setReplyUserId($json->in_reply_to_user_id);
                 $tweet->setReplyUsername($json->in_reply_to_screen_name);
+              }
+              if(isset($json->geo, $json->geo->coordinates)) {
+                $tweet->setLatitude($json->geo->coordinates[0]);
+                $tweet->setLongitude($json->geo->coordinates[1]);
               }
               $tweet->setLanguage($rss->children($namespaces['twitter'])->lang);
               $tweet->setSource(html_entity_decode($rss->children($namespaces['twitter'])->source));

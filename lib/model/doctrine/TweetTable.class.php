@@ -44,4 +44,12 @@ class TweetTable extends Doctrine_Table {
 
     return $q->execute();
   }
+
+  public function getGeoTweets() {
+    return Doctrine_Query::create()->from('Tweet')->
+      where('latitude IS NOT NULL')->
+      andWhere('longitude IS NOT NULL')->
+      orderBy('id desc')->
+      execute();
+  }
 }

@@ -54,7 +54,7 @@
     <ul id="twitter">
       <?php foreach($tweets as $tweet) : ?>
         <li>
-          <span class="tweet"><?php echo preg_replace('/<a[^>]+>#[^<]+<\/a>/', '', $tweet->getRawValue()->getHTML()) ?></span>
+          <span class="tweet"><?php echo $tweet->getRawValue()->getHTMLHashtagsStripped() ?></span>
           <span class="time"><?php echo nice_time($tweet->getDateTimeObject('created_at')->format('U')) ?></span>
           <div class="clear"></div>
         </li>

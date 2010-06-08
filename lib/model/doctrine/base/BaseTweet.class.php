@@ -12,6 +12,8 @@
  * @property bigint $reply_id
  * @property integer $reply_user_id
  * @property string $reply_username
+ * @property float $latitude
+ * @property float $longitude
  * @property string $language
  * @property string $source
  * 
@@ -22,6 +24,8 @@
  * @method bigint  getReplyId()        Returns the current record's "reply_id" value
  * @method integer getReplyUserId()    Returns the current record's "reply_user_id" value
  * @method string  getReplyUsername()  Returns the current record's "reply_username" value
+ * @method float   getLatitude()       Returns the current record's "latitude" value
+ * @method float   getLongitude()      Returns the current record's "longitude" value
  * @method string  getLanguage()       Returns the current record's "language" value
  * @method string  getSource()         Returns the current record's "source" value
  * @method Tweet   setId()             Sets the current record's "id" value
@@ -31,6 +35,8 @@
  * @method Tweet   setReplyId()        Sets the current record's "reply_id" value
  * @method Tweet   setReplyUserId()    Sets the current record's "reply_user_id" value
  * @method Tweet   setReplyUsername()  Sets the current record's "reply_username" value
+ * @method Tweet   setLatitude()       Sets the current record's "latitude" value
+ * @method Tweet   setLongitude()      Sets the current record's "longitude" value
  * @method Tweet   setLanguage()       Sets the current record's "language" value
  * @method Tweet   setSource()         Sets the current record's "source" value
  * 
@@ -73,6 +79,14 @@ abstract class BaseTweet extends sfDoctrineRecord
         $this->hasColumn('reply_username', 'string', 100, array(
              'type' => 'string',
              'length' => 100,
+             ));
+        $this->hasColumn('latitude', 'float', null, array(
+             'type' => 'float',
+             'length' => '',
+             ));
+        $this->hasColumn('longitude', 'float', null, array(
+             'type' => 'float',
+             'length' => '',
              ));
         $this->hasColumn('language', 'string', 2, array(
              'type' => 'string',

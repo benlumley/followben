@@ -12,5 +12,19 @@
       <?php $chunks[] = ob_get_clean() ?>
     <?php endforeach; ?>
     <?php echo implode(',' . PHP_EOL, $chunks) ?>
+   ],
+  "tweets": [
+    <?php $chunks = array() ?>
+    <?php foreach ($tweets as $tweet): ?>
+      <?php ob_start() ?>
+      {
+        "html": "<?php echo str_replace('"', '\'', $tweet->getRawValue()->getHTMLHashtagsStripped()) ?>",
+        "latitude": <?php echo $tweet->getLatitude() ?>,
+        "longitude": <?php echo $tweet->getLongitude() ?>,
+        "time": "<?php echo nice_time($tweet->getDateTimeObject('created_at')->format('U')) ?>"
+      }
+      <?php $chunks[] = ob_get_clean() ?>
+    <?php endforeach; ?>
+    <?php echo implode(',' . PHP_EOL, $chunks) ?>
    ]
 }

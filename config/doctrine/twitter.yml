@@ -21,6 +21,10 @@ Tweet:
       type: integer(4)
     reply_username:
       type: string(100)
+    latitude:
+      type: float()
+    longitude:
+      type: float()
     language:
       type: string(2)
       notnull: true

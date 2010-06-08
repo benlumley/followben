@@ -38,5 +38,11 @@ class defaultActions extends sfActions
       $this->points = $q->execute();
     }
 
+    $q = Doctrine::getTable('Tweet')->createQuery('t');
+    $q->where('UNIX_TIMESTAMP(t.created_at) BETWEEN ? AND ?', array(mktime(0,0,0, date('n', $date), date('j', $date), date('Y', $date)), mktime(23,59,0, date('n'), date('j'), date('Y'))));
+    $q->where('t.latitude IS NOT NULL');
+    $q->andWhere('t.longitude IS NOT NULL');
+    $q->addOrderBy('t.id');
+    $this->tweets = $q->execute();
   }
 }

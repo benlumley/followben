@@ -66,6 +66,10 @@ function populateMap(date) {
       addWaypoint(point, i, data.points.length);
     });
 
+    $.each(data.tweets, function(i,tweet){
+      addTweet(tweet);
+    });
+
     map.setZoom(map.getBoundsZoomLevel(bounds));
     map.setCenter(bounds.getCenter());
     if (waypoints.length > 0) {
@@ -107,31 +111,23 @@ function addWaypoint(point, i, length) {
   var marker = new GMarker(latlng, { icon:icon });
   marker.bindInfoWindowHtml(description);
   map.addOverlay(marker);
-
 }
 
+function addTweet(tweet) {
+  latlng = new GLatLng(tweet.latitude, tweet.longitude);
+  bounds.extend(latlng);
 
-function pad(number, length) {
-  var str = '' + number;
-  while (str.length < length) {
-      str = '0' + str;
-  }
-  return str;
-}
+  var icon= new GIcon();
 
-Date.prototype.getMonthName = function() {
-  var m = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  return m[this.getMonth()];
-}
-Date.prototype.getDayName = function() {
-  var d = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  return d[this.getDay()];
-}
-Date.prototype.get12HourTime = function() {
-  return this.getHours()>12 ? this.getHours() - 12 : this.getHours();
-}
-Date.prototype.get12HourTimeSuffix = function() {
-  return this.getHours()>12 ? 'pm' : 'am';
+  icon.image = "images/ben.png";
+  icon.iconAnchor = new GPoint(16, 32);
+  icon.iconSize = new GSize(44, 37);
+  icon.infoWindowAnchor = new GPoint(16, 0);
+
+  icon.shadow = "";
+  var marker = new GMarker(latlng, { icon:icon });
+  marker.bindInfoWindowHtml(tweet.html + ' - <em>' + tweet.time + '</em>');
+  map.addOverlay(marker);
 }
 
 var tweets;
@@ -165,4 +161,27 @@ function nextTweet() {
     }
   })
   setTimeout('nextTweet()', 10000);
+}
+
+function pad(number, length) {
+  var str = '' + number;
+  while (str.length < length) {
+      str = '0' + str;
+  }
+  return str;
+}
+
+Date.prototype.getMonthName = function() {
+  var m = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return m[this.getMonth()];
+}
+Date.prototype.getDayName = function() {
+  var d = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  return d[this.getDay()];
+}
+Date.prototype.get12HourTime = function() {
+  return this.getHours()>12 ? this.getHours() - 12 : this.getHours();
+}
+Date.prototype.get12HourTimeSuffix = function() {
+  return this.getHours()>12 ? 'pm' : 'am';
 }
