@@ -29,7 +29,7 @@ EOF;
     $web = new sfWebBrowser();
     
     $this->logSection($this->namespace, 'Getting latest tweets for @'.sfConfig::get('app_twitter_username'));
-    $atom = $web->get('http://search.twitter.com/search.atom?q=from:'.sfConfig::get('app_twitter_username').'&rpp=200');
+    $atom = $web->get('http://search.twitter.com/search.atom?q=from:'.sfConfig::get('app_twitter_username').'&rpp=5');
 
     try {
       if(!$atom->responseIsError()) {
