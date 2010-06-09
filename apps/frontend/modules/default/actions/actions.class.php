@@ -39,15 +39,16 @@ class defaultActions extends sfActions
     $q->addOrderBy('p.timestamp');
     $this->points = $q->execute();
 
-    if ($this->points->count()==0) {
-      $q = Doctrine::getTable('Position')->createQuery('p');
-      $q->limit(1);
-      $q->orderBy('p.timestamp DESC');
-      $this->points = $q->execute();
-    }
+//    if ($this->points->count()==0) {
+//      $q = Doctrine::getTable('Position')->createQuery('p');
+//      $q->limit(1);
+//      $q->orderBy('p.timestamp DESC');
+//      $this->points = $q->execute();
+//    }
 
-    $q = Doctrine::getTable('Tweet')->createQuery('t');
-    $q->where('UNIX_TIMESTAMP(t.created_at) BETWEEN ? AND ?', array($start_stamp, $end_stamp));
+    $q = Doctrine::getTable('Tweet')->getKeywordsQuery(array('le2jog', 'justgiving'));
+
+    $q->andWhere('UNIX_TIMESTAMP(t.created_at) BETWEEN ? AND ?', array($start_stamp, $end_stamp));
     $q->andWhere('t.latitude IS NOT NULL');
     $q->andWhere('t.longitude IS NOT NULL');
     $q->addOrderBy('t.id');
