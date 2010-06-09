@@ -17,6 +17,7 @@ $(document).ready(function () {
   $('.date .from.selector').each(function() {
     $(this).datepicker({
       'dateFormat': 'D d M',
+      'minDate': 'Thu 10 June',
       'maxDate': 'Sat 19 June',
       'altField': '#real_start_timestamp',
       'altFormat': 'dd/mm'
@@ -28,6 +29,7 @@ $(document).ready(function () {
   $('.date .to.selector').each(function() {
     $(this).datepicker({
       'dateFormat': 'D d M',
+      'minDate': 'Thu 10 June',
       'maxDate': 'Sat 19 June',
       'altField': '#real_end_timestamp',
       'altFormat': 'dd/mm'
@@ -98,7 +100,7 @@ function populateMap(date, end_date) {
     }
   });
   clearTimeout(timer);
-  timer = setTimeout('populateMap(\'' + date + '\')', 300000);
+  timer = setTimeout('populateMap(\'' + date + '\', \'' +  end_date + '\')', 30000);
 }
 
 function addWaypoint(point, i, length) {

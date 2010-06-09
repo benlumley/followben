@@ -1,14 +1,12 @@
 <div class="container">
-  <div class="span-12">
+  <div class="span-8">
     <a href="/"><img src="images/logo.png" alt="Follow Ben"/></a>
   </div>
-  <div class="span-12 last">
-    <div id="fblike"><fb:like href="http://followben.co.uk" show_faces="false" width="470"></fb:like></div>
-    <div id="justgiving">
-      <a href="http://www.justgiving.com/ben-lumley" title="JustGiving - Sponsor me!" target="_blank">
-        <img src="/images/justgiving.png" width="230" height="50" alt="JustGiving - Sponsor me!"/>
-      </a>
-    </div>
+  <div class="span-10" id="fblike"><fb:like href="http://followben.co.uk" show_faces="false" width="470"></fb:like></div>
+  <div class="span-6 last" id="justgiving">
+    <a href="http://www.justgiving.com/ben-lumley" title="JustGiving - Sponsor me!" target="_blank">
+      <img src="/images/justgiving.png" width="230" height="50" alt="JustGiving - Sponsor me!"/>
+    </a>
   </div>
   <div class="clear"></div>
 
