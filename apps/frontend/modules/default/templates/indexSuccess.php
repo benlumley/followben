@@ -41,7 +41,7 @@
           <span>From</span>
           <input type="text" name="start_timestamp" class="from selector" value="<?php echo date('D d M') ?>"/>
           <span>to</span>
-          <input type="text" name="end_timestamp" class="to selector" value="<?php echo date('D d M') ?>" disabled="disabled"/>
+          <input type="text" name="end_timestamp" class="to selector" value="<?php echo date('D d M') ?>"/>
           <input type="hidden" name="real_start_timestamp" id="real_start_timestamp" value="<?php echo date('d/m') ?>" />
           <input type="hidden" name="real_end_timestamp" id="real_end_timestamp" value="<?php echo date('d/m') ?>" />
         </form>

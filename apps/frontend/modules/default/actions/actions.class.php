@@ -25,9 +25,17 @@ class defaultActions extends sfActions
     } else {
       $date = time();
     }
+    if ($request->hasParameter('end_date')) {
+      $end_date = strtotime($request->getParameter('end_date'));
+    } else {
+      $end_date = time();
+    }
+
+    $start_stamp = mktime(0,0,0, date('n', $date), date('j', $date), date('Y', $date));
+    $end_stamp = mktime(23,59,0, date('n', $end_date), date('j', $end_date), date('Y', $end_date));
 
     $q = Doctrine::getTable('Position')->createQuery('p');
-    $q->where('p.timestamp BETWEEN ? AND ?', array(mktime(0,0,0, date('n', $date), date('j', $date), date('Y', $date)), mktime(23,59,0, date('n'), date('j'), date('Y'))));
+    $q->where('p.timestamp BETWEEN ? AND ?', array($start_stamp, $end_stamp));
     $q->addOrderBy('p.timestamp');
     $this->points = $q->execute();
 
@@ -39,10 +47,24 @@ class defaultActions extends sfActions
     }
 
     $q = Doctrine::getTable('Tweet')->createQuery('t');
-    $q->where('UNIX_TIMESTAMP(t.created_at) BETWEEN ? AND ?', array(mktime(0,0,0, date('n', $date), date('j', $date), date('Y', $date)), mktime(23,59,0, date('n'), date('j'), date('Y'))));
+    $q->where('UNIX_TIMESTAMP(t.created_at) BETWEEN ? AND ?', array($start_stamp, $end_stamp));
     $q->andWhere('t.latitude IS NOT NULL');
     $q->andWhere('t.longitude IS NOT NULL');
     $q->addOrderBy('t.id');
     $this->tweets = $q->execute();
+
+    $q = Doctrine::getTable('Day')->createQuery('d');
+    $q->where('d.date BETWEEN ? AND ?', array( date('Y-m-d', $date),  date('Y-m-d', $end_date)));
+    $q->orderBy('d.date ASC');
+    $days = $q->execute();
+    $this->waypoints = array();
+    foreach ($days as $d) {
+      if (empty($this->waypoints)) {
+        $this->waypoints[] = array('latitude'=> $d->getStartLatt(), 'longitude'=>$d->getStartLong(), 'title'=>$d->getTitle() . " (Start)", 'type'=>'start');
+      }
+      $this->waypoints[] = array('latitude'=> $d->getEndLatt(), 'longitude'=>$d->getEndLong(), 'title'=>$d->getTitle() . " (End)", 'type'=>'end');
+    }
+
+
   }
 }

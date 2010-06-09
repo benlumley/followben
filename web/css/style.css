@@ -120,15 +120,12 @@ hr {
   border: none;
 }
 
-.map .overlay .date .from.selector {
+.map .overlay .date .selector {
   text-decoration: underline;
   color: #0000FF;
   cursor: pointer;
 }
 
-.map .overlay .date .to.selector {
-  color: #000000;
-}
 
 .map .overlay .date span {
   width: 38px;

@@ -12,7 +12,7 @@ class ProjectConfiguration extends sfProjectConfiguration
   }
 
   public function getEnvironment() {
-    if (strpos ( $_SERVER ['HTTP_HOST'], 'home.benlumley.co.uk' ) || strpos (dirname(__FILE__), 'whereisben' )) {
+    if (strpos ( $_SERVER ['HTTP_HOST'], 'home.benlumley.co.uk' ) || strpos (dirname(__FILE__), 'whereisben' ) || strpos ($_SERVER ['HTTP_HOST'], 'wiredmedia.co.uk' )) {
       return 'dev';
     } else if (strpos ( $_SERVER ['HTTP_HOST'], 'stevelacey.net' )) {
       return 'steve';
