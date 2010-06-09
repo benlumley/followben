@@ -100,7 +100,7 @@ function populateMap(date, end_date) {
     }
   });
   clearTimeout(timer);
-  timer = setTimeout('populateMap(\'' + date + '\', \'' +  end_date + '\')', 30000);
+  timer = setTimeout('populateMap(\'' + date + '\', \'' +  end_date + '\')', 300000);
 }
 
 function addWaypoint(point, i, length) {
