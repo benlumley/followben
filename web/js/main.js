@@ -148,7 +148,7 @@ function addTweet(tweet) {
 
   icon.shadow = "";
   var marker = new GMarker(latlng, { icon:icon });
-  marker.bindInfoWindowHtml(tweet.html + ' - <em>' + tweet.time + '</em>');
+  marker.bindInfoWindowHtml(tweet.html + ' - <em>' + tweet.time + '</em>', { "maxWidth": 300  });
   map.addOverlay(marker);
 }
 
