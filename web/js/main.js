@@ -148,15 +148,20 @@ function addTweet(tweet) {
   var marker = new GMarker(latlng, { icon:icon });
 
   var twitpic = 'http://twitpic.com/'
+  var yfrog = 'http://yfrog.com/'
   if(strpos(tweet.text, twitpic)) {
     var text = tweet.text.substring(strpos(tweet.text, twitpic) + twitpic.length, tweet.text.length);
     var id = strpos(text, ' ') ? text.substring(0, strpos(text, ' ')) : text;
     var image = '<a href="' + twitpic + id + '" class="image"><img src="' + twitpic + 'show/mini/' + id + '.jpg"/></a>';
+  } else if(strpos(tweet.text, yfrog)) {
+    var text = tweet.text.substring(strpos(tweet.text, yfrog), tweet.text.length);
+    var url = strpos(text, ' ') ? text.substring(0, strpos(text, ' ')) : text;
+    var image = '<a href="' + url + '" class="image"><img src="' + url + '.th.jpg"/></a>';
   }
 
   var content = tweet.html + ' - ' + "<em>" + tweet.time + '</em>';
 
-  marker.bindInfoWindowHtml((isset(image) ? '<div class="tooltip">' + image + "<p>" + content + '</p></div>' : content) , { "maxWidth": 300  });
+  marker.bindInfoWindowHtml((isset(image) ? '<div class="tooltip">' + image + "<p>" + content + '</p></div>' : content) , { "maxWidth": 320  });
   map.addOverlay(marker);
 }
 
