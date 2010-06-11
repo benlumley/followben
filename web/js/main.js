@@ -30,8 +30,6 @@ $(document).ready(function () {
   });
 
   initTweets();
-
-
 });
 
 
@@ -126,7 +124,15 @@ function addTweet(tweet) {
 
   icon.shadow = "";
   var marker = new GMarker(latlng, { icon:icon });
-  marker.bindInfoWindowHtml(tweet.html + ' - <em>' + tweet.time + '</em>');
+
+  var twitpic = 'http://twitpic.com/'
+  if(strpos(tweet.text, twitpic)) {
+    var text = tweet.text.substring(strpos(tweet.text, twitpic) + twitpic.length, tweet.text.length);
+    var id = strpos(text, ' ') ? text.substring(0, strpos(text, ' ')) : text;
+    var image = '<a href="' + twitpic + id + '" class="image"><img src="' + twitpic + 'show/mini/' + id + '.jpg"/></a>';
+  }
+
+  marker.bindInfoWindowHtml('<div class="tooltip">' + (isset(image) ? image : '') + "<p>" + tweet.html + ' - ' + "<em>" + tweet.time + '</em></p></div>');
   map.addOverlay(marker);
 }
 
@@ -161,6 +167,28 @@ function nextTweet() {
     }
   })
   setTimeout('nextTweet()', 10000);
+}
+
+function isset () {
+    var a=arguments, l=a.length, i=0;
+
+    if (l===0) {
+        throw new Error('Empty isset');
+    }
+
+    while (i!==l) {
+        if (typeof(a[i])=='undefined' || a[i]===null) {
+            return false;
+        } else {
+            i++;
+        }
+    }
+    return true;
+}
+
+function strpos (haystack, needle, offset) {
+    var i = (haystack+'').indexOf(needle, (offset || 0));
+    return i === -1 ? false : i;
 }
 
 function pad(number, length) {

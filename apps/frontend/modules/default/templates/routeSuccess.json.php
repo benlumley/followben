@@ -18,6 +18,7 @@
     <?php foreach ($tweets as $tweet): ?>
       <?php ob_start() ?>
       {
+        "text": "<?php echo str_replace('"', '\'', $tweet->getRawValue()->getText()) ?>",
         "html": "<?php echo str_replace('"', '\'', $tweet->getRawValue()->getHTMLHashtagsStripped()) ?>",
         "latitude": <?php echo $tweet->getLatitude() ?>,
         "longitude": <?php echo $tweet->getLongitude() ?>,

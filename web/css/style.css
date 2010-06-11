@@ -90,6 +90,16 @@ hr {
   height: 600px;
 }
 
+.map .tooltip {
+  height: 180px;
+}
+
+.map .image {
+  float: right;
+  width: 75px;
+  height: 75px;
+}
+
 .map .overlay {
   position: relative;
   top: -568px;
