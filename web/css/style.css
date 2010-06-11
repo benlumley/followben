@@ -45,6 +45,7 @@ hr {
 
 #fblike {
   height: 35px;
+  margin-top: 35px;
 }
 
 /**************************************/
@@ -94,7 +95,11 @@ hr {
   height: 180px;
 }
 
-.map .image {
+.map .tooltip p {
+  width: 210px;
+}
+
+.map .tooltip .image {
   float: right;
   width: 75px;
   height: 75px;
@@ -130,15 +135,12 @@ hr {
   border: none;
 }
 
-.map .overlay .date .from.selector {
+.map .overlay .date .selector {
   text-decoration: underline;
   color: #0000FF;
   cursor: pointer;
 }
 
-.map .overlay .date .to.selector {
-  color: #000000;
-}
 
 .map .overlay .date span {
   width: 38px;
@@ -161,7 +163,7 @@ hr {
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 75px;
+  height: 90px;
 }
 
 .tweets ul#twitter li {
@@ -184,11 +186,11 @@ hr {
 
 .footer {
   text-align: center;
-  color: #CCCCCC;
+  color: #AAAAAA;
 }
 
 .footer a {
-  color: #CCCCCC;
+  color: #AAAAAA;
 }
 
 /**************************************/

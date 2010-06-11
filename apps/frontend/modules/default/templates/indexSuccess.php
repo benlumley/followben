@@ -1,14 +1,12 @@
 <div class="container">
-  <div class="span-12">
+  <div class="span-8">
     <a href="/"><img src="images/logo.png" alt="Follow Ben"/></a>
   </div>
-  <div class="span-12 last">
-    <div id="fblike"><fb:like href="http://followben.co.uk" show_faces="false" width="470"></fb:like></div>
-    <div id="justgiving">
-      <a href="http://www.justgiving.com/ben-lumley" title="JustGiving - Sponsor me!" target="_blank">
-        <img src="/images/justgiving.png" width="230" height="50" alt="JustGiving - Sponsor me!"/>
-      </a>
-    </div>
+  <div class="span-10" id="fblike"><fb:like href="http://followben.co.uk" show_faces="false" width="470"></fb:like></div>
+  <div class="span-6 last" id="justgiving">
+    <a href="http://www.justgiving.com/ben-lumley" title="JustGiving - Sponsor me!" target="_blank">
+      <img src="/images/justgiving.png" width="230" height="50" alt="JustGiving - Sponsor me!"/>
+    </a>
   </div>
   <div class="clear"></div>
 
@@ -41,7 +39,7 @@
           <span>From</span>
           <input type="text" name="start_timestamp" class="from selector" value="<?php echo date('D d M') ?>"/>
           <span>to</span>
-          <input type="text" name="end_timestamp" class="to selector" value="<?php echo date('D d M') ?>" disabled="disabled"/>
+          <input type="text" name="end_timestamp" class="to selector" value="<?php echo date('D d M') ?>"/>
           <input type="hidden" name="real_start_timestamp" id="real_start_timestamp" value="<?php echo date('d/m') ?>" />
           <input type="hidden" name="real_end_timestamp" id="real_end_timestamp" value="<?php echo date('d/m') ?>" />
         </form>

@@ -10,22 +10,32 @@ $(document).ready(function () {
     document.getElementById('fb-root').appendChild(e);
   }());
 
-  var today = new Date();
-  var date = $('#real_start_timestamp').val().split('/');
 
   mapSetup();
-  populateMap(today.getFullYear() + '-' + date[1] + '-' + date[0]);
+  reloadMap();
 
   $('.date .from.selector').each(function() {
     $(this).datepicker({
       'dateFormat': 'D d M',
-      'maxDate': 'today',
+      'minDate': 'Thu 10 June',
+      'maxDate': 'Sat 19 June',
       'altField': '#real_start_timestamp',
       'altFormat': 'dd/mm'
     });
     $(this).change(function() {
-      var date = $('#real_start_timestamp').val().split('/');
-      populateMap(today.getFullYear() + '-' + date[1] + '-' + date[0]);
+      reloadMap();
+    });
+  });
+  $('.date .to.selector').each(function() {
+    $(this).datepicker({
+      'dateFormat': 'D d M',
+      'minDate': 'Thu 10 June',
+      'maxDate': 'Sat 19 June',
+      'altField': '#real_end_timestamp',
+      'altFormat': 'dd/mm'
+    });
+    $(this).change(function() {
+      reloadMap();
     });
   });
 
@@ -38,6 +48,7 @@ var map = null;
 var bounds = null;
 var end_point_time = null;
 var timer = null;
+var nights = [];
 
 
 function mapSetup() {
@@ -53,12 +64,19 @@ function mapSetup() {
     map.setCenter(myLatlng, 5);
 }
 
+function reloadMap() {
+      var today = new Date();
+      var date = $('#real_start_timestamp').val().split('/');
+      var end_date = $('#real_end_timestamp').val().split('/');
+      populateMap(today.getFullYear() + '-' + date[1] + '-' + date[0], today.getFullYear() + '-' + end_date[1] + '-' + end_date[0]);
+}
 
-function populateMap(date) {
-  $.getJSON('/route.json?date=' + date, function (data) {
+function populateMap(date, end_date) {
+  $.getJSON('/route.json?date=' + date + '&end_date=' + end_date, function (data) {
     map.clearOverlays();
     bounds = new GLatLngBounds();
     waypoints = [];
+    nights = [];
 
     $.each(data.points, function(i,point){
       addWaypoint(point, i, data.points.length);
@@ -66,6 +84,10 @@ function populateMap(date) {
 
     $.each(data.tweets, function(i,tweet){
       addTweet(tweet);
+    });
+
+    $.each(data.waypoints, function(i,waypoint){
+      addNight(waypoint);
     });
 
     map.setZoom(map.getBoundsZoomLevel(bounds));
@@ -76,7 +98,7 @@ function populateMap(date) {
     }
   });
   clearTimeout(timer);
-  timer = setTimeout('populateMap(\'' + date + '\')', 300000);
+  timer = setTimeout('populateMap(\'' + date + '\', \'' +  end_date + '\')', 300000);
 }
 
 function addWaypoint(point, i, length) {
@@ -132,7 +154,26 @@ function addTweet(tweet) {
     var image = '<a href="' + twitpic + id + '" class="image"><img src="' + twitpic + 'show/mini/' + id + '.jpg"/></a>';
   }
 
-  marker.bindInfoWindowHtml('<div class="tooltip">' + (isset(image) ? image : '') + "<p>" + tweet.html + ' - ' + "<em>" + tweet.time + '</em></p></div>');
+  var content = tweet.html + ' - ' + "<em>" + tweet.time + '</em>';
+
+  marker.bindInfoWindowHtml((isset(image) ? '<div class="tooltip">' + image + "<p>" + content + '</p></div>' : content) , { "maxWidth": 300  });
+  map.addOverlay(marker);
+}
+
+function addNight(night) {
+  latlng = new GLatLng(night.latitude, night.longitude);
+  bounds.extend(latlng);
+
+  var icon= new GIcon();
+
+  icon.image = "images/cabin.png";
+  icon.iconAnchor = new GPoint(16, 32);
+  icon.iconSize = new GSize(32, 37);
+  icon.infoWindowAnchor = new GPoint(16, 0);
+
+  icon.shadow = "";
+  var marker = new GMarker(latlng, { icon:icon });
+  marker.bindInfoWindowHtml(night.title);
   map.addOverlay(marker);
 }
 

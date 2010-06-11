@@ -30,19 +30,23 @@ class TweetTable extends Doctrine_Table {
   }
 
   public function getLatestKeywords($keywords = array(), $limit = 10) {
-    $q = Doctrine_Query::create()->from('Tweet');
+    $q = $this->getKeyWordsQuery($keywords);
+    $q->orderBy('id desc')->limit($limit);
+    return $q->execute();
+  }
+  public function getKeywordsQuery($keywords = array()) {
+    $q = Doctrine_Query::create()->from('Tweet t');
 
     if(is_array($keywords)) {
+      $query = array();
       foreach($keywords as $keyword) {
-        $q->orWhere('text LIKE ?', '%'.$keyword.'%');
+       $query[] = 'text LIKE \'%'.$keyword.'%\'';
       }
+      $q->andWhere('(' . implode(' OR ', $query) . ')');
     } else if (!empty($keywords)) {
-      $q->where('text LIKE ?', '%'.$keyword.'%');
+      $q->andwhere('text LIKE ?', '%'.$keyword.'%');
     }
-
-    $q->orderBy('id desc')->limit($limit);
-
-    return $q->execute();
+    return $q;
   }
 
   public function getGeoTweets() {

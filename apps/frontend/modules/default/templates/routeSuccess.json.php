@@ -27,5 +27,19 @@
       <?php $chunks[] = ob_get_clean() ?>
     <?php endforeach; ?>
     <?php echo implode(',' . PHP_EOL, $chunks) ?>
+   ],
+   "waypoints": [
+    <?php $chunks = array() ?>
+    <?php foreach ($waypoints as $waypoint): ?>
+      <?php ob_start() ?>
+      {
+        "latitude": <?php echo $waypoint['latitude'] ?>,
+        "longitude": <?php echo $waypoint['longitude'] ?>,
+        "title": "<?php echo $waypoint['title'] ?>",
+        "type": "<?php echo $waypoint['type'] ?>"
+      }
+      <?php $chunks[] = ob_get_clean() ?>
+    <?php endforeach; ?>
+    <?php echo implode(',' . PHP_EOL, $chunks) ?>
    ]
 }
