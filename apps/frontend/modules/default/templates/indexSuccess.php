@@ -10,6 +10,11 @@
   </div>
   <div class="clear"></div>
 
+  <div class="span-24 last notice" style="margin-top: 10px; ">
+    <strong>Bad News ...</strong> - the cycle ride has unfortunately come to a premature end, <a href="/news">read more</a>.
+
+  </div>
+
   <div class="span-6 blob">
     <h2>You can follow me</h2>
     <p>Keep an eye on the map below and you can follow me on my cycle ride from Lands End to John O'Groats. I'm off early on Friday morning, and cycling around 100 miles a day, plan to reach John O'Groats the following Saturday.</p>

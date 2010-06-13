@@ -68,4 +68,9 @@ class defaultActions extends sfActions
 
 
   }
+
+  public function executeNews(sfWebRequest $request) {
+    
+  }
+
 }
