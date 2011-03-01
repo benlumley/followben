@@ -9,7 +9,3 @@ homepage:
 route:
   url: /route.json
   param: { module: default, action: route, sf_format: json }
-
-news:
-  url:   /news
-  param: { module: default, action: news }
