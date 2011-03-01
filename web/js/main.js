@@ -17,8 +17,8 @@ $(document).ready(function () {
   $('.date .from.selector').each(function() {
     $(this).datepicker({
       'dateFormat': 'D d M',
-      'minDate': 'Thu 10 June',
-      'maxDate': 'Sat 19 June',
+      'minDate': 'Tue 01 Mar',
+      'maxDate': 'Tue 08 Mar',
       'altField': '#real_start_timestamp',
       'altFormat': 'dd/mm'
     });
@@ -29,8 +29,8 @@ $(document).ready(function () {
   $('.date .to.selector').each(function() {
     $(this).datepicker({
       'dateFormat': 'D d M',
-      'minDate': 'Thu 10 June',
-      'maxDate': 'Sat 19 June',
+      'minDate': 'Tue 01 Mar',
+      'maxDate': 'Tue 08 Mar',
       'altField': '#real_end_timestamp',
       'altFormat': 'dd/mm'
     });
